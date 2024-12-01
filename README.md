@@ -1,15 +1,15 @@
 # Czechitas 2024
-Mentees: Anastasiia Mozharova, Anwar Pospíšil 
+**Mentees:** Anastasiia Mozharova, Anwar Pospíšil 
 
-Mentoři: Petr Holík, Zuzana Katich 
+**Mentoři:** Petr Holík, Zuzana Katich 
 
 Volba tématu
 ---
 Na začátku jsme obě přišly s několika různými nápady z oblastí filmového průmyslu, gender equality nebo duševního zdraví, ale nebyl tam až takový překryv. Téma, které jsme nakonec vybraly, bylo zkrátka to jedno, na kterém jsme se shodly, že nás zajímá obě - vesmírný průzkum. 
 
-Anwar: Vesmír je jedno z témat, které mě zajímalo od dětství, fascinovaly mě různé astronomické úkazy a přečetla o tom jsem v té době spoustu knih. Kromě toho jsem už přes deset let členem největšího českého Star Trek fanklubu. Takže když Nasťa navrhla něco o vesmírných misích, řekla jsem si, to zní dobře. 
+**Anwar:** Vesmír je jedno z témat, které mě zajímalo od dětství, fascinovaly mě různé astronomické úkazy a přečetla o tom jsem v té době spoustu knih. Kromě toho jsem už přes deset let členem největšího českého Star Trek fanklubu. Takže když Nasťa navrhla něco o vesmírných misích, řekla jsem si, to zní dobře. 
 
-Anastasiia: Narodila jsem se v Rusku, kde je vesmír velké téma. Máme dokonce i speciální svátek s názvem „Den kosmonautiky“ a už od první třídy jsme na něj tvořili plakáty a projekty. Těsně před začátkem akademie jsem dokoukala seriál “For All Mankind”, který mě opravdu oslovil a spustil takovou menší fixaci na vesmír. To mě inspirovalo k tomu, abych navrhla vesmírné téma pro náš projekt. 
+**Anastasiia:** Narodila jsem se v Rusku, kde je vesmír velké téma. Máme dokonce i speciální svátek s názvem „Den kosmonautiky“ a už od první třídy jsme na něj tvořili plakáty a projekty. Těsně před začátkem akademie jsem dokoukala seriál “For All Mankind”, který mě opravdu oslovil a spustil takovou menší fixaci na vesmír. To mě inspirovalo k tomu, abych navrhla vesmírné téma pro náš projekt. 
 
 Zdroj dat
 ---
@@ -48,6 +48,7 @@ A tím to zdaleka neskončilo. Další úpravy vyžadovala nekonzistentnost dat 
 ![Příklad kódu 3](./images/3%20code.png)
 
 Během druhého hackathonu jsme se pustily do vizualizací. V této fázi jsme objevily další problém: ne všechny kódy zemí ve výchozí tabulce odpovídaly obvyklému dvoupísmennému formátu. Například Japonsko bylo uvedeno jako „J“ místo „JP“. Pro lepší čitelnost vizualizací jsme se také rozhodly přidat nový sloupec s plnými názvy zemí a sloupce pro obchodní regiony a kontinenty.
+
 Naše výchozí tabulka neobsahovala sloupec s plnými názvy zemí, takže jsme je začaly dohledávat na internetu a ručně psát podmínky pomocí CASE WHEN pro každou zemi.
 
 ![Příklad kódu 4](./images/4%20code.png)
@@ -83,10 +84,15 @@ Další otázka, která nás zajímala, byla, jak si vedou jednotlivé státy po
 ![Šestý graf](./images/Celosvětový%20podíl%20úspěšnosti.png)
 
 Nějaká konkrétní čísla a zajímavosti na závěr: 
+---
 Celkový počet vypuštěných satelitů podle našeho zdroje: 22 757
+
 Z toho počet satelitů, které stále vysílají: 10 228
+
 Českých a slovenských satelitů dohromady bylo vypuštěno celkem 17.  A navíc, na rozdíl od těch amerických, všechny odstartovaly úspěšně. :-D 8 jich stále funguje.
+
 První vypuštěný satelit celosvětově: Sputnik 1, 4. října 1957. Odstartoval z ruského Bajkonuru, byla to zhruba osmdesátikilová koule s anténami a vysílačkou a o tři měsíce později shořel v atmosféře. 
+
 Nejstarší stále funkční satelit: prý americký satelit pojmenovaný NNS 30020. Vypustila jej 13. prosince 1964 US Air Force Space Systems Division a využívá jej armáda, konkrétně námořnictvo, k navigaci. 
 
 Ostatní grafy a dashboardy je možné si prohlédnout na tomto odkazu:
@@ -103,16 +109,18 @@ https://bit.ly/dadpp2024projekt14
 
 Na čem kdo pracoval
 ---
-Anwar 
+**Anwar** 
+
 Skoro na všem jsme pracovaly spolu, obvykle přes chat nebo videohovor na Discordu. Od výběru tématu, přes hledání vstupních dat, vytváření datového modelu a čištění po vizualizace a finální report. Práci jsme si rozdělily až ke konci, kdy jsem já napsala anotaci projektu a první verzi textu tohoto článku, zatímco Nasťa ještě dokončovala posledních několik úprav našich výstupních tabulek. Nakonec ještě doplnila do článku obrázky, svoje vyjádření k výběru tématu a rozdělení práce a několik dalších informací. Následně jsem celý text ještě jednou prošla já, abych zkontrolovala gramatiku a upravila věty do formy, která se bude lépe číst. 
 
-Anastasiia
+**Anastasiia**
+
 Jak Anwar řekla, většinu práce jsme dělaly společně, jen ke konci jsme bez většího přemýšlení začaly některé úkoly řešit samostatně. Já jsem se tedy pustila do práce s daty o konci přenosu a provozu, kde jsem je standardizovala. Dále jsem pracovala s kódy zemí, regiony a kontinenty a seskupila účely startů satelitů a také jsem doplnila jejich plné názvy.
 
 Kromě toho jsem také pracovala na blogu a co se týče vizualizací, snažila jsem se do nich přidat úpravy a vylepšení.
 
 A co jsme si z toho odnesly? 
 ---
-Anwar: Do digitální akademie jsem se hlásila s tím, že chci novou sadu dovedností a kompletní změnu kariéry. Projekt byl skvělý způsob, jak si vyzkoušet práci datového analytika, procvičit používání nástrojů, se kterými jsme se během studia seznámily, a zjistit, jak budeme reagovat, pokud narazíme na problém. Byla to zajímavá zkušenost a určitě chci tímto směrem pokračovat. 
+**Anwar:** Do digitální akademie jsem se hlásila s tím, že chci novou sadu dovedností a kompletní změnu kariéry. Projekt byl skvělý způsob, jak si vyzkoušet práci datového analytika, procvičit používání nástrojů, se kterými jsme se během studia seznámily, a zjistit, jak budeme reagovat, pokud narazíme na problém. Byla to zajímavá zkušenost a určitě chci tímto směrem pokračovat. 
 
-Anastasiia: Mým cílem pro akademii bylo naučit se nové hard skills, což si myslím, že se mi podařilo. Nejvíce mě bavila práce s SQL, Keboolou a Tableau, a v budoucnu bych se v těchto nástrojích chtěla ještě více zdokonalit. Tento projekt mi jasně ukázal, že práce datového analytika mě opravdu zajímá, a ráda bych v této specializaci pokračovala.
+**Anastasiia:** Mým cílem pro akademii bylo naučit se nové hard skills, což si myslím, že se mi podařilo. Nejvíce mě bavila práce s SQL, Keboolou a Tableau, a v budoucnu bych se v těchto nástrojích chtěla ještě více zdokonalit. Tento projekt mi jasně ukázal, že práce datového analytika mě opravdu zajímá, a ráda bych v této specializaci pokračovala.
