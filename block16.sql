@@ -1,0 +1,5 @@
+/* ===== BLOCK: Block 16 ===== */
+
+/* ===== CODE: CLEANING LAUNCH_SITE_ALLT ===== */
+
+DELETE FROM LAUNCH_SITE_ALLT WHERE LS_NAME = '# Updated 2024 Oct 14 17:49:50';
