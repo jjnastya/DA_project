@@ -97,6 +97,10 @@ Odkaz na git hub:
 
 https://github.com/jjnastya/DA_project
 
+Odkaz na blog:
+
+https://bit.ly/dadpp2024projekt14
+
 Na čem kdo pracoval
 ---
 Anwar 
