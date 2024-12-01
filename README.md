@@ -1,4 +1,4 @@
-# Czechitas 2024
+# Přehled vypuštěných satelitů od počátku dobývání vesmíru
 **Mentees:** Anastasiia Mozharova, Anwar Pospíšil 
 
 **Mentoři:** Petr Holík, Zuzana Katich 
