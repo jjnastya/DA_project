@@ -89,9 +89,13 @@ Z toho počet satelitů, které stále vysílají: 10 228
 První vypuštěný satelit celosvětově: Sputnik 1, 4. října 1957. Odstartoval z ruského Bajkonuru, byla to zhruba osmdesátikilová koule s anténami a vysílačkou a o tři měsíce později shořel v atmosféře. 
 Nejstarší stále funkční satelit: prý americký satelit pojmenovaný NNS 30020. Vypustila jej 13. prosince 1964 US Air Force Space Systems Division a využívá jej armáda, konkrétně námořnictvo, k navigaci. 
 
-Ostatní grafy je možné si prohlédnout na tomto odkazu:
+Ostatní grafy a dashboardy je možné si prohlédnout na tomto odkazu:
 
 https://public.tableau.com/app/profile/anastasiia.mozharova/vizzes 
+
+Odkaz na git hub:
+
+https://github.com/jjnastya/DA_project
 
 Na čem kdo pracoval
 ---
