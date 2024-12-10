@@ -34,94 +34,92 @@ Then came the longest and most challenging part: populating and cleaning the dat
 We started by downloading the tables in TSV format and uploading them to Google Sheets. From there, we imported them into Keboola. We also decided that SQL would be our primary tool for the project.
 During the first hackathon, we began building and populating individual tables using Keboola. Once completed, we noticed that some columns were only 27% filled. This prompted us to reassess our original data sources. At this stage, we decided to rely solely on Jonathan’s Space Report because its tables contained the most comprehensive data. Missing information, such as the country of origin or satellite purpose, was found in other sections of the dataset, specifically the Payload and Organization tables.
 
-Another challenge was the inconsistent formatting of some data in Jonathan’s tables. 
+One of the challenges was the inconsistent formatting of some data in Jonathan’s tables. For example, in the launch date, values ranged from just the year to the exact date and time, down to hundredths of a second. We normalized this data using this code:
 
 ![Příklad kódu 1](./images/first_code.png)
 
-Launch Date: Values ranged from just the year to the exact date and time, down to hundredths of a second. We normalized this data using this code:
+Another interesting experience was when the mentors guided us through creating a spreadsheet with dates.
 
 ![Příklad kódu 2](./images/2%20code.png)
 
-Transmission End and Operation End Dates: These included months written as text, requiring separation and standardization. For data with only a year (no month or day), we set January 1 as a placeholder to maintain consistency. Active satellites were marked with an asterisk, which meant their format couldn’t be converted to a date. For these rows, we created a new column, STATUS, as a string format.
+When it comes to Transmission End and Operation End Dates, they included months written as text, requiring separation and standardization. For data with only a year (no month or day), we set January 1 as a placeholder to maintain consistency. Active satellites were marked with an asterisk, which meant their format couldn’t be converted to a date. For these rows, we created a new column, STATUS, as a string format.
 
 ![Příklad kódu 3](./images/3%20code.png)
 
------------- (thats where i stopped)
+During the second hackathon, we worked on visualizations. At this stage, we discovered another issue: not all country codes in the base table matched the standard two-letter format. For example, Japan was listed as “J” instead of “JP.” To improve visualization clarity, we decided to add new columns for full country names, business regions, and continents.
 
-Během druhého hackathonu jsme se pustily do vizualizací. V této fázi jsme objevily další problém: ne všechny kódy zemí ve výchozí tabulce odpovídaly obvyklému dvoupísmennému formátu. Například Japonsko bylo uvedeno jako „J“ místo „JP“. Pro lepší čitelnost vizualizací jsme se také rozhodly přidat nový sloupec s plnými názvy zemí a sloupce pro obchodní regiony a kontinenty.
-
-Naše výchozí tabulka neobsahovala sloupec s plnými názvy zemí, takže jsme je začaly dohledávat na internetu a ručně psát podmínky pomocí CASE WHEN pro každou zemi.
+Our base table didn't include a column for full country names, so initially, we manually looked them up online and wrote CASE WHEN conditions for each country.
 
 ![Příklad kódu 4](./images/4%20code.png)
 
-Naši mentoři nám ale navrhli chytřejší přístup: vytvořit dodatečné vstupní tabulky s těmito informacemi, což významně zkrátilo a zjednodušilo kód.
-Abychom proces ještě více zefektivnily, použila Nasťa ChatGPT k vytvoření tabulek s plnými názvy všech zemí a jejich rozdělením do regionů a kontinentů.
+Our mentors suggested a smarter approach: creating additional input tables with all the needed information, which significantly shortened and simplified the code. To streamline the process further, Nastya used ChatGPT to generate tables with full country names and their regional classifications.
 
-Výstupy
+Outputs
 ---
-Během naší analýzy jsme hledaly odpovědi na několik otázek. U některých jsme měly představu, jaká asi bude odpověď, a obvykle se potvrdila. 
-Nejvíce vypuštěných satelitů mají nepřekvapivě USA (12 809) a nejméně státy Súdán, Bolívie, Laos, Jordánsko, Tunisko, Arménie, Senegal, Ghana, Litva, Kostarika, Džibuti, Srí Lanka, Moldávie, Rwanda, Uganda, Guatemala, Zimbabwe, Papua Nová Guinea a Paraguay, které mají každý po jednom satelitu. Navíc ne všechny z nich odstartovaly úspěšně. 
+
+During our analysis, we sought answers to several questions. For some, we had an idea of what the answer might be, and it was usually confirmed.
+It’s no surprise that the USA leads with 12,809 satellites, while countries such as Sudan, Bolivia, Laos, Jordan, Tunisia, Armenia, Senegal, Ghana, Lithuania, Costa Rica, Djibouti, Sri Lanka, Moldova, Rwanda, Uganda, Guatemala, Zimbabwe, Papua New Guinea, and Paraguay have each launched just one. Moreover, not all of these launches were successful.
 
 ![První graf](./images/Top%2015%20zemí%20podle%20počtu%20startů%20satelitů%20a%20jejich%20stavů.png)
 
-Nejúspěšnější agentura je v současnosti SpaceX. Tento graf zobrazuje top 5 agentur a procentuální rozložení toho, jaké různé typy satelitů zatím vyslaly. 
+Currently, the most successful agency is SpaceX. This chart shows the top five agencies and the percentage distribution of the various satellite types they have launched.
 
 ![Druhý graf](./images/K%20jakým%20účelům%20vypouštějí%20satelity%20top%205%20agentur.png)
 
-Vytvořily jsme mapu startovních ploch včetně počtu startů ke každé z nich. I k ní jsme přidaly filtr, aby bylo možné si prohlédnout postupný vývoj. 
+We created a map of launch sites, including the number of launches at each location. We also added a filter to view the historical development over time.
 
 ![Třetí graf](./images/Porovnání%20základen%20podle%20počtu%20provedených%20startů.png)
 
-Celosvětovou statistiku využití satelitů zobrazuje následující graf. Při proklikávání výsledků po jednotlivých zemích asi nikoho nepřekvapí, že v Severní Koreji využívá satelity hlavně armáda. 
+The next chart displays global satellite usage statistics. When exploring the results by individual countries, it’s not surprising to find that in North Korea, satellites are primarily used for military purposes.
 
 ![Čtvrtý graf](./images/Celosvětová%20statistika%20využití%20satelitů.png)
 
-Co by to bylo za projekt o vesmírném průzkumu, kdyby se tam neobjevilo nic o závodech mezi USA a Sovětským svazem. Zde vidíme vývoj toho, kolik objektů ročně během této části historie obě mocnosti vypustily.
+What would a space exploration project be without mentioning the rivalry between the USA and the Soviet Union? This chart shows the annual number of objects launched by these two superpowers during this historic period.
 
 ![Pátý graf](./images/Star%20Wars%20USA%20vs.%20SSSR%20(1957–1991).png)
 
-Další otázka, která nás zajímala, byla, jak si vedou jednotlivé státy pokud jde o úspěšnost startů (tedy jestli ke startu vůbec dojde a jestli celé těleso nevybouchne). 
+Another question we explored was how individual countries perform in terms of launch success (whether the launch occurred and whether the entire payload didn’t explode).
 
 ![Šestý graf](./images/Celosvětový%20podíl%20úspěšnosti.png)
 
-Nějaká konkrétní čísla a zajímavosti na závěr: 
+Some specific numbers and fun facts to conclude:
 ---
-Celkový počet vypuštěných satelitů podle našeho zdroje: 22 757
+Total satellites launched accrding to our sources: 22,757
 
-Z toho počet satelitů, které stále vysílají: 10 228
+Still transmitting: 10,228
 
-Českých a slovenských satelitů dohromady bylo vypuštěno celkem 17.  A navíc, na rozdíl od těch amerických, všechny odstartovaly úspěšně. :-D 8 jich stále funguje.
+Czech and Slovak satellites launched: 17, all of which launched successfully, with 8 still operational.
 
-První vypuštěný satelit celosvětově: Sputnik 1, 4. října 1957. Odstartoval z ruského Bajkonuru, byla to zhruba osmdesátikilová koule s anténami a vysílačkou a o tři měsíce později shořel v atmosféře. 
+First satellite ever launched: Sputnik 1, on October 4, 1957. It was launched from the Russian Baikonur Cosmodrome. This approximately 80-kg sphere with antennas and a transmitter burned up in the atmosphere three months later.
 
-Nejstarší stále funkční satelit: prý americký satelit pojmenovaný NNS 30020. Vypustila jej 13. prosince 1964 US Air Force Space Systems Division a využívá jej armáda, konkrétně námořnictvo, k navigaci. 
+Oldest still-functioning satellite: Reportedly, the American satellite NNS 30020. It was launched on December 13, 1964, by the US Air Force Space Systems Division and is used by the US Navy for navigation.
 
-Ostatní grafy a dashboardy je možné si prohlédnout na tomto odkazu:
+Other dashboards and charts can be viewed here:
 
 https://public.tableau.com/app/profile/anastasiia.mozharova/vizzes 
 
-Odkaz na git hub:
+GitHub repository:
 
 https://github.com/jjnastya/DA_project
 
-Odkaz na blog:
+Blog post:
 
 https://bit.ly/dadpp2024projekt14
 
-Na čem kdo pracoval
+Division of labor
 ---
 **Anwar** 
 
-Skoro na všem jsme pracovaly spolu, obvykle přes chat nebo videohovor na Discordu. Od výběru tématu, přes hledání vstupních dat, vytváření datového modelu a čištění po vizualizace a finální report. Práci jsme si rozdělily až ke konci, kdy jsem já napsala anotaci projektu a první verzi textu tohoto článku, zatímco Nasťa ještě dokončovala posledních několik úprav našich výstupních tabulek. Nakonec ještě doplnila do článku obrázky, svoje vyjádření k výběru tématu a rozdělení práce a několik dalších informací. Následně jsem celý text ještě jednou prošla já, abych zkontrolovala gramatiku a upravila věty do formy, která se bude lépe číst. 
+We worked on almost everything together, usually through chat or video calls on Discord. From choosing the topic to finding input data, creating the data model, cleaning, visualizations, and the final report. We only split tasks at the very end, where I wrote the project annotation and the first draft of this article, while Nastya finalized the last few adjustments to our output tables. She also added the images, her reflections on the topic selection and task division, and several additional details to the article. I then reviewed the entire text again to check grammar and improve readability.
 
 **Anastasiia**
 
-Jak Anwar řekla, většinu práce jsme dělaly společně, jen ke konci jsme bez většího přemýšlení začaly některé úkoly řešit samostatně. Já jsem se tedy pustila do práce s daty o konci přenosu a provozu, kde jsem je standardizovala. Dále jsem pracovala s kódy zemí, regiony a kontinenty a seskupila účely startů satelitů a také jsem doplnila jejich plné názvy.
+As Anwar said, we did most of the work together, only solving some tasks individually toward the end. I worked on the data for transmission and operation end dates, where I standardized them. I also worked on country codes, regions, and continents, grouped satellite launch purposes, and added full country names. 
 
-Kromě toho jsem také pracovala na blogu a co se týče vizualizací, snažila jsem se do nich přidat úpravy a vylepšení.
+Additionally, I worked on the blog, made various adjustments and improvements to the visualizations, uploaded everything to GitHub and prepared visuals of our the presenation.
 
-A co jsme si z toho odnesly? 
+What did we gain from this project?
 ---
-**Anwar:** Do digitální akademie jsem se hlásila s tím, že chci novou sadu dovedností a kompletní změnu kariéry. Projekt byl skvělý způsob, jak si vyzkoušet práci datového analytika, procvičit používání nástrojů, se kterými jsme se během studia seznámily, a zjistit, jak budeme reagovat, pokud narazíme na problém. Byla to zajímavá zkušenost a určitě chci tímto směrem pokračovat. 
+**Anwar:** I applied to the digital academy to gain a new skill set and make a complete career change. This project was a fantastic way to experience the work of a data analyst, practice using the tools we learned during the course, and see how we respond to challenges. It was an exciting experience, and I definitely want to continue in this field.
 
-**Anastasiia:** Mým cílem pro akademii bylo naučit se nové hard skills, což si myslím, že se mi podařilo. Nejvíce mě bavila práce s SQL, Keboolou a Tableau, a v budoucnu bych se v těchto nástrojích chtěla ještě více zdokonalit. Tento projekt mi jasně ukázal, že práce datového analytika mě opravdu zajímá, a ráda bych v této specializaci pokračovala.
+**Anastasiia:** My goal for the academy was to learn new hard skills, which I believe I achieved. I particularly enjoyed working with SQL, Keboola, and Tableau, and I’d like to refine these skills further. This project solidified my interest in data analytics, and I’m excited to pursue this specialization.
